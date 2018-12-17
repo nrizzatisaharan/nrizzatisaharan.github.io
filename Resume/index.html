@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Resume</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
+<link rel="stylesheet" type="text/css" media="screen" href="index.css" >
+<script>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  img.parentElement.insertBefore(glass, img);
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    e.preventDefault();
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    a = img.getBoundingClientRect();
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+</head>
+
+<body>
+<div id="header">
+  <ul>
+    <li><a href="#"><span>nrizzatisaharan</span></a></li>
+  </ul>
+</div>
+<div id="about">
+  <img id="picture" src="izzati.jpg" style="height:250px; width:250px;"><br>
+
+  <div id="story">
+    <h1>Nur Izzati Mohamed Saharan</h1>
+    <h2>Bachelor of Computer Science</h2>
+     <p> I default to believing that I can solve any problem on my own. This works well in some situations,
+        but in many cases, I need the help of others to overcome factors beyond my control. </p>
+  </div>
+ </div>
+
+<div class="section">
+  <hr><br>
+  <mark>Education</mark>
+
+  <div class="item">
+    <h3>SMKA Naim Lilbanat</h3>
+    <h4>High School 1</h4>
+    <div class="date">2013 - 2015</div>
+    <div class="description">
+      <p>SMKA Naim Lilbanat is an only girl school. I studied there until
+        PMR and then moved to SMK Sri Gunong </p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>SMK Gunong</h3>
+    <h4>High School 2</h4>
+    <div class="date">2016 - 2017</div>
+    <div class="description">
+      <p>I take science as my major courses as I very interrested in Chemistry at that time.
+      But as time goes by, my interested is more to IT subjects.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>International Islamic University Malaysia</h3>
+    <h4>University</h4>
+    <div class="date">2017 - Now</div>
+    <div class="description">
+      <p>During foundation, I take engineering courses but after
+      degree, I changed my course to Bachelor of Computer Science as
+      my interest is in Programming Languange</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+
+  <hr><br>
+  <mark>Experience</mark>
+  <div class="item">
+    <h3><a href="#">Ignite Book Garden</a></h3>
+    <h4>Publication and Promotion</h4>
+    <div class="date">1st Year 2nd Sem</div>
+    <div class="description">
+      <p>Ignite Book Garden is an event for book lovers. During that event,
+      Im one of the committee of publication and promotion. I did some editing (poster, flyers and banner)
+     using adobe photoshop. Also, I become a photographer during that event.</p>
+    </div>
+  </div>
+
+<div class="item">
+  <h3>Cekak Week</h3>
+  <h4>Publication and Promotion</h4>
+  <div class="date">1st Year 2nd Sem</div>
+  <div class="description">
+    <p>Cekak Week is a festival for promoting Selat Cekak Malaysia. During that event,
+    Im one of the committee of publication and promotion. I did some editing (poster, flyers and banner)
+   using adobe photoshop.  Also, I become a photographer during that event.</p>
+  </div>
+</div>
+
+  <div class="item">
+    <h3>KICT Festival</h3>
+    <h4>Special Task</h4>
+    <div class="date">2nd Year 1st Sem</div>
+    <div class="description">
+      <p>KICT festival is the first festival that KICT students to handle. During that event,
+      Im one of the committee of special task. I did some decoration at the stage. Also, the committee
+      of special task did prepared some gifts for the winner.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <hr><br>
+  <mark>Skills</mark>
+  <div class="item">
+    <h3>Adobe Photoshop</h3>
+    <div class="description">
+      <p>Capable of editing poster, flyers and banner. Also, editing some pictures. </p>
+    </div>
+  </div>
+  <div class="item">
+    <h3>HTML/CSS/JS</h3>
+    <div class="description">
+      <p>Capable of creating a website using HTML, CSS and JAVA in atom.</p>
+    </div>
+  </div>
+</div>
+
+  <hr><br>
+<div class="img-magnifier-container">
+  <h5>Here is a picture of my team during KICT Festival'18</h5><br>
+  <img id="myimage" src="kict.jpg" width="600" height="400">
+</div>
+
+    <script>
+    magnify("myimage", 3);
+    </script>
+<br>
+<br>
+    <footer>
+      <p> @nrizzatisaharan</p>
+    </footer>
+
+</body>
+</html>
